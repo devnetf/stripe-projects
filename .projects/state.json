@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "providers": {
+    "athena": {
+      "name": "Athena"
+    }
+  },
+  "resources": {
+    "stripe-projects": {
+      "name": "stripe-projects",
+      "providerName": "Athena",
+      "serviceId": "agents"
+    }
+  }
+}

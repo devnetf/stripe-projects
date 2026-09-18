@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "project": {
+    "catalog": "prod",
+    "initializedAt": "2026-09-18T04:18:22.504Z",
+    "merchantDisplayName": null,
+    "merchantId": "acct_18kf7gBKOzL8Kznc",
+    "projectId": "project_61VQHD4xtS4lgC8Zl16OmQ0i4sA8IDXvHnvYuSAdMVwm",
+    "projectName": "stripe-projects"
+  },
+  "providers": {
+    "athena": {
+      "accountRequestId": "facctrq_61VQHE70VvjjBEKlw16OmQ0i4sA8IDXvHnvYuSAdMPDs",
+      "configuration": {},
+      "linkedAt": "2026-09-18T04:19:28.269Z",
+      "providerId": "prvdr_61VNueP9cELmCU01Z5DFA",
+      "providerName": "Athena",
+      "redirectUrl": null,
+      "requestedAt": "2026-09-18T04:19:28.269Z",
+      "status": "complete",
+      "providerAccount": {
+        "id": "athena_pacct_631bd6aafb2b866172e0f51f",
+        "display_name": "acct_18kf7gBKOzL8Kznc",
+        "primary_email": "zheng.n.shang@gmail.com",
+        "link_action": "created"
+      }
+    }
+  },
+  "resources": {
+    "stripe-projects": {
+      "configuration": {
+        "name": "Image Text Agent",
+        "instructions": "You have Athena Image Capability enabled as a tool. For every user message, call Image Capability and generate one image that contains the exact user message as large readable text. Do not write SVG, HTML, or code. Do not describe an image instead of generating it. After the image is generated, reply with one short confirmation.",
+        "connect_mcp": "no",
+        "enable_image_generation": "yes",
+        "enable_music_generation": "no",
+        "enable_live": "no",
+        "enable_coding": "yes",
+        "enable_deep_research": "no",
+        "enable_google_maps": "no",
+        "starter_1": "Hello from Athena",
+        "starter_2": "Ship it today",
+        "starter_3": "Keep going"
+      },
+      "createdAt": "2026-09-18T04:43:04.060Z",
+      "lastRevealedAt": "2026-09-18T04:43:04.395Z",
+      "lastStatus": "complete",
+      "name": "stripe-projects",
+      "providerId": "prvdr_61VNueP9cELmCU01Z5DFA",
+      "providerName": "Athena",
+      "resourceId": "fres_61VQHaxf80XXeODqP16OmQ0i4sA8IDXvHnvYuSAdM3Oy",
+      "serviceId": "agents"
+    }
+  }
+}
