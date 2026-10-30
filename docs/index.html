@@ -35,15 +35,18 @@
       color: #526174;
     }
     .code {
+      box-sizing: border-box;
+      width: 100%;
       margin: 0;
       padding: 16px;
       border-radius: 12px;
       background: #f7f9fb;
       border: 1px solid #d9e0e8;
+      resize: none;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 1rem;
       line-height: 1.5;
-      word-break: break-all;
+      color: inherit;
     }
     button {
       margin-top: 16px;
@@ -66,24 +69,23 @@
   <main>
     <h1>Code</h1>
     <p>This is the value from the QR code.</p>
-    <pre class="code" id="value">4NMqElmW64R9JbPm7pooNXZxjkuTue15G4ZXRP9rJhL_qRrJBPeuypnwsQKRuMUJzonqW9DiPblzpofkNgogzw</pre>
+    <textarea class="code" id="value" readonly rows="4">4NMqElmW64R9JbPm7pooNXZxjkuTue15G4ZXRP9rJhL_qRrJBPeuypnwsQKRuMUJzonqW9DiPblzpofkNgogzw</textarea>
     <button id="copy" type="button">Copy</button>
   </main>
   <script>
-    const value = document.getElementById("value").textContent;
+    const field = document.getElementById("value");
     const button = document.getElementById("copy");
     button.addEventListener("click", async () => {
+      field.focus();
+      field.select();
+      let copied = false;
       try {
-        await navigator.clipboard.writeText(value);
+        await navigator.clipboard.writeText(field.value);
+        copied = true;
       } catch (error) {
-        const area = document.createElement("textarea");
-        area.value = value;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand("copy");
-        area.remove();
+        copied = document.execCommand("copy");
       }
-      button.textContent = "Copied";
+      button.textContent = copied ? "Copied" : "Selected";
       setTimeout(() => {
         button.textContent = "Copy";
       }, 1600);
