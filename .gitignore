@@ -1,3 +1,5 @@
+server/ideogram-mcp/node_modules
+
 .projects/cache
 .projects/vault
 .projects/state.test.json

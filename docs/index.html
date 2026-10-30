@@ -3,93 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Code</title>
+  <title>Removed</title>
   <style>
-    :root {
-      color-scheme: light;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: #f4f6f8;
-      color: #142033;
-    }
     body {
       margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
-      padding: 24px;
+      font-family: system-ui, sans-serif;
+      background: #f4f6f8;
+      color: #142033;
     }
     main {
-      width: min(100%, 560px);
-      background: #fff;
-      border: 1px solid #d9e0e8;
-      border-radius: 16px;
+      max-width: 36rem;
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(20, 32, 51, 0.06);
-    }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 1.25rem;
-    }
-    p {
-      margin: 0 0 16px;
-      color: #526174;
-    }
-    .code {
-      box-sizing: border-box;
-      width: 100%;
-      margin: 0;
-      padding: 16px;
-      border-radius: 12px;
-      background: #f7f9fb;
-      border: 1px solid #d9e0e8;
-      resize: none;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: inherit;
-    }
-    button {
-      margin-top: 16px;
-      width: 100%;
-      border: 0;
-      border-radius: 12px;
-      background: #111bf5;
-      color: #fff;
-      font: inherit;
-      font-weight: 650;
-      padding: 12px 16px;
-      cursor: pointer;
-    }
-    button:active {
-      transform: translateY(1px);
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Code</h1>
-    <p>This is the value from the QR code.</p>
-    <textarea class="code" id="value" readonly rows="4">4NMqElmW64R9JbPm7pooNXZxjkuTue15G4ZXRP9rJhL_qRrJBPeuypnwsQKRuMUJzonqW9DiPblzpofkNgogzw</textarea>
-    <button id="copy" type="button">Copy</button>
+    <h1>This page no longer shows a code</h1>
+    <p>The previous value was an API key and has been removed from this page.</p>
   </main>
-  <script>
-    const field = document.getElementById("value");
-    const button = document.getElementById("copy");
-    button.addEventListener("click", async () => {
-      field.focus();
-      field.select();
-      let copied = false;
-      try {
-        await navigator.clipboard.writeText(field.value);
-        copied = true;
-      } catch (error) {
-        copied = document.execCommand("copy");
-      }
-      button.textContent = copied ? "Copied" : "Selected";
-      setTimeout(() => {
-        button.textContent = "Copy";
-      }, 1600);
-    });
-  </script>
 </body>
 </html>
