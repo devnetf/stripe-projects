@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #f4f6f8;
+      color: #142033;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    main {
+      width: min(100%, 560px);
+      background: #fff;
+      border: 1px solid #d9e0e8;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(20, 32, 51, 0.06);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+    p {
+      margin: 0 0 16px;
+      color: #526174;
+    }
+    .code {
+      margin: 0;
+      padding: 16px;
+      border-radius: 12px;
+      background: #f7f9fb;
+      border: 1px solid #d9e0e8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1rem;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+    button {
+      margin-top: 16px;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      background: #111bf5;
+      color: #fff;
+      font: inherit;
+      font-weight: 650;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Code</h1>
+    <p>This is the value from the QR code.</p>
+    <pre class="code" id="value">4NMqElmW64R9JbPm7pooNXZxjkuTue15G4ZXRP9rJhL_qRrJBPeuypnwsQKRuMUJzonqW9DiPblzpofkNgogzw</pre>
+    <button id="copy" type="button">Copy</button>
+  </main>
+  <script>
+    const value = document.getElementById("value").textContent;
+    const button = document.getElementById("copy");
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch (error) {
+        const area = document.createElement("textarea");
+        area.value = value;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      }
+      button.textContent = "Copied";
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 1600);
+    });
+  </script>
+</body>
+</html>
